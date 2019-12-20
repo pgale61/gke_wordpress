@@ -18,7 +18,7 @@ Template can be run as follows:
 
 1. Pull the repo
 1. Set variable values in `terraform.tvars.(json)`
-1. Add your AWS access and secret keys to `terraform.tfvars(.json)`, or enter them at the run time prompts. (scalr_aws_access_key, scalr_aws_secret_key)
+1. Add your GCE access and secret keys to `terraform.tfvars(.json)`, or enter them at the run time prompts. (scalr_google_project, scalr_google_credentials)
 1. Run `terraform init;terraform apply` and watch the magic happen.
 
 ## Using with Scalr Next-Gen as Remote Backend
@@ -39,6 +39,7 @@ In general follow the example here https://scalr-athena.readthedocs-hosted.com/e
 1. Create Policies (scalr-module.hcl shows the policy bindings that are required)
    1. cloud.locations - Policy to limit the cloud locations (note this can be all locations but the policy must exist)
 1. Create a Global Variable `name_fmt` with REGEX `^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$`
+1. Create a Global Variable `sesnitive_input` and set both flags on to mask inputs.
 1. Fork or clone the Source repo (https://github.com/scalr-eap/eks_wordpress)
 1. Create the Service Catalog offering pointing to your copy repo
 1. Request the offering. It can take 5-10 minutes for the DNS name to work and the POD to become active.
